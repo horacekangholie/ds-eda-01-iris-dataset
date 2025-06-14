@@ -6,6 +6,12 @@ The Iris dataset is a classic multivariate dataset introduced by Ronald Fisher, 
 #### 🗒️ Histogram
 Histograms are used in Exploratory Data Analysis (EDA) to visualize the distribution of a single numerical feature. They help you understand how values in a dataset are spread out, whether they are symmetrically distributed, skewed, or show signs of multimodal behavior (multiple peaks). Adding a KDE (Kernel Density Estimate) curve gives a smoothed version of the distribution, making patterns even clearer.
 
+```python
+for i, feature in enumerate(feature_names):
+    axes[i].set_title(feature)
+    sns.histplot(data=df_data, x=feature, ax=axes[i], kde=True)
+```
+
 ![Histogram](/assets/histogram.png)
 
 💡 What the Histogram tells about the Iris Dataset
@@ -16,6 +22,10 @@ Histograms are used in Exploratory Data Analysis (EDA) to visualize the distribu
 
 #### 🗒️ Countplot
 The countplot is used to visualize the frequency (i.e. count) of each category in a categorical feature—here, the target variable which represents the three species of iris flowers. By using hue='target', you reinforce the separation of classes visually, and the legend maps numeric class labels (0, 1, 2) to their actual names (setosa, versicolor, virginica)
+
+```python
+sns.countplot(data=df_data, x='target', hue='target', palette='tab10')
+```
 
 ![Countplot](/assets/countplot.png)
 
@@ -31,6 +41,10 @@ The pairplot is used in EDA to:
 * The hue='target' parameter colors the data points by species, making it easy to see how well different species are separated across different feature combinations.
 * The diag_kind='kde' shows smoothed density plots along the diagonal to understand each feature’s distribution within each class.
 
+```python
+sns.pairplot(df_data, hue='target', diag_kind='kde', palette='tab10')
+```
+
 ![pairplot](/assets/pairplot.png)
 
 💡 What the Pairplot tells about the Iris Dataset
@@ -41,7 +55,7 @@ The pairplot is used in EDA to:
     * Sepal length and petal length.
 * Features like sepal width show weaker correlation or less class separability.
 
-This plot helps to conclude that:
+💡 This plot helps to conclude that:
 * Petal measurements are more effective for distinguishing species.
 * Setosa is easiest to classify.
 * Feature combinations like petal length vs petal width would be highly useful in classification models.
