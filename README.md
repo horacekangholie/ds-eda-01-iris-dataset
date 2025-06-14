@@ -14,4 +14,34 @@ Histograms are used in Exploratory Data Analysis (EDA) to visualize the distribu
 * _Petal Length_: Shows a bimodal distribution, suggesting the presence of at least two distinct groups (likely related to different species). This is a strong signal that petal length is a useful feature for classification.
 * _Petal Width_: Also bimodal, with many samples having small values (near 0.2 cm) and another group between 1.0 to 2.0 cm. Like petal length, it likely differentiates between species.
 
+#### 🗒️ Countplot
+The countplot is used to visualize the frequency (i.e. count) of each category in a categorical feature—here, the target variable which represents the three species of iris flowers. By using hue='target', you reinforce the separation of classes visually, and the legend maps numeric class labels (0, 1, 2) to their actual names (setosa, versicolor, virginica)
 
+![Countplot](/assets/countplot.png)
+
+💡 What the Countplot tells about the Iris Dataset
+* Each class (setosa, versicolor, virginica) has exactly 50 samples.
+* The dataset is perfectly balanced across the three species—meaning no class is over- or under-represented.
+* This is important for machine learning because it reduces the risk of bias during training—models won't be skewed toward any specific class simply due to frequency.
+
+#### 🗒️ Pairplot
+The pairplot is used in EDA to: 
+* Visualize pairwise relationships between all numerical features in the dataset.
+* Quickly spot patterns, correlations, or separation between classes.
+* The hue='target' parameter colors the data points by species, making it easy to see how well different species are separated across different feature combinations.
+* The diag_kind='kde' shows smoothed density plots along the diagonal to understand each feature’s distribution within each class.
+
+![pairplot](/assets/pairplot.png)
+
+💡 What the Pairplot tells about the Iris Dataset
+* Setosa (blue, class 0) is clearly separated from the other two classes in almost all combinations—especially in petal length and width. It forms tight, distinct clusters.
+* Versicolor (orange, class 1) and Virginica (green, class 2) show some overlap, particularly in sepal-based features, but are more separable in petal-based features.
+* There’s a strong positive correlation between:
+    * Petal length and petal width.
+    * Sepal length and petal length.
+* Features like sepal width show weaker correlation or less class separability.
+
+This plot helps to conclude that:
+* Petal measurements are more effective for distinguishing species.
+* Setosa is easiest to classify.
+* Feature combinations like petal length vs petal width would be highly useful in classification models.
