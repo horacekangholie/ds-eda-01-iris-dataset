@@ -7,18 +7,16 @@ The Iris dataset is a classic multivariate dataset introduced by Ronald Fisher, 
 Histograms are used in Exploratory Data Analysis (EDA) to visualize the distribution of a single numerical feature. They help you understand how values in a dataset are spread out, whether they are symmetrically distributed, skewed, or show signs of multimodal behavior (multiple peaks). Adding a KDE (Kernel Density Estimate) curve gives a smoothed version of the distribution, making patterns even clearer.
 
 ```python
-for i, feature in enumerate(feature_names):
-    axes[i].set_title(feature)
-    sns.histplot(data=df_data, x=feature, ax=axes[i], kde=True)
+sns.histplot(data=df_data, x=feature, ax=axes[0], kde=True)
 ```
 
 ![Histogram](/assets/histogram.png)
 
->💡 What the Histogram tells about the Iris Dataset
->* _Sepal Length_: The distribution is slightly right-skewed with most values clustered between 5 and 7 cm. It appears to follow a unimodal shape.
->* _Sepal Width_: This is closer to a normal distribution but slightly left-skewed, with a peak around 3.0 cm.
->* _Petal Length_: Shows a bimodal distribution, suggesting the presence of at least two distinct groups (likely related to different species). This is a strong signal that petal length is a useful feature for classification.
->* _Petal Width_: Also bimodal, with many samples having small values (near 0.2 cm) and another group between 1.0 to 2.0 cm. Like petal length, it likely differentiates between species.
+    >💡 What the Histogram tells about the Iris Dataset
+    >* _Sepal Length_: The distribution is slightly right-skewed with most values clustered between 5 and 7 cm. It appears to follow a unimodal shape.
+    >* _Sepal Width_: This is closer to a normal distribution but slightly left-skewed, with a peak around 3.0 cm.
+    >* _Petal Length_: Shows a bimodal distribution, suggesting the presence of at least two distinct groups (likely related to different species). This is a strong signal that petal length is a useful feature for classification.
+    >* _Petal Width_: Also bimodal, with many samples having small values (near 0.2 cm) and another group between 1.0 to 2.0 cm. Like petal length, it likely differentiates between species.
 
 #### 🗒️ Countplot
 The countplot is used to visualize the frequency (i.e. count) of each category in a categorical feature—here, the target variable which represents the three species of iris flowers. By using hue='target', you reinforce the separation of classes visually, and the legend maps numeric class labels (0, 1, 2) to their actual names (setosa, versicolor, virginica)
