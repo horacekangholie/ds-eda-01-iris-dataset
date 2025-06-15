@@ -12,7 +12,7 @@ sns.histplot(data=df_data, x=feature, ax=axes[0], kde=True)
 
 ![Histogram](/assets/histogram.png)
 
-> 💡 What the Histogram tells about the Iris Dataset
+> 🔍 What the Histogram tells about the Iris Dataset
 > * _Sepal Length_: The distribution is slightly right-skewed with most values clustered between 5 and 7 cm. It appears to follow a unimodal shape.
 > * _Sepal Width_: This is closer to a normal distribution but slightly left-skewed, with a peak around 3.0 cm.
 > * _Petal Length_: Shows a bimodal distribution, suggesting the presence of at least two distinct groups (likely related to different species). This is a strong signal that petal length is a useful feature for classification.
@@ -27,7 +27,7 @@ sns.countplot(data=df_data, x='target', hue='target', palette='tab10')
 
 ![Countplot](/assets/countplot.png)
 
-> 💡 What the Countplot tells about the Iris Dataset
+> 🔍 What the Countplot tells about the Iris Dataset
 > * Each class (setosa, versicolor, virginica) has exactly 50 samples.
 > * The dataset is perfectly balanced across the three species—meaning no class is over- or under-represented.
 > * This is important for machine learning because it reduces the risk of bias during training—models won't be skewed toward any specific class simply due to frequency.
@@ -45,7 +45,7 @@ sns.pairplot(df_data, hue='target', diag_kind='kde', palette='tab10')
 
 ![pairplot](/assets/pairplot.png)
 
-> 💡 What the Pairplot tells about the Iris Dataset
+> 🔍 What the Pairplot tells about the Iris Dataset
 > * Setosa (blue, class 0) is clearly separated from the other two classes in almost all combinations—especially in petal length and width. It forms tight, distinct clusters.
 > * Versicolor (orange, class 1) and Virginica (green, class 2) show some overlap, particularly in sepal-based features, but are more separable in petal-based features.
 > * There’s a strong positive correlation between:
@@ -53,7 +53,30 @@ sns.pairplot(df_data, hue='target', diag_kind='kde', palette='tab10')
 >     * Sepal length and petal length.
 > * Features like sepal width show weaker correlation or less class separability.
 
-> 💡 This plot helps to conclude that:
+> 🔍 This plot helps to conclude that:
 > * Petal measurements are more effective for distinguishing species.
 > * Setosa is easiest to classify.
 > * Feature combinations like petal length vs petal width would be highly useful in classification models.
+
+#### 🗒️ Heatmap
+A correlation heatmap is used to visualize the linear relationships between numerical variables. It helps:
+* Identify strong positive or negative correlations.
+* Detect redundant features (highly correlated with others) which may affect model performance.
+* Guide feature selection or dimensionality reduction.
+
+| Correlation Coefficient (r) | Strength |
+| --- | --- | --- |
+| **0.90 to 1.00** | Very strong |
+| **0.70 to 0.89** | Strong |
+| **0.40 to 0.69** | Moderate |
+| **0.10 to 0.39** | Weak |
+| **0** | None / No correlation |
+
+![heatmap](/assets/heatmap.png)
+
+> 🔍 What the Heatmap tells About the Iris Dataset
+> * Petal width and petal length are very strongly correlated (0.96).
+> * Both petal features are highly correlated with the target (0.95 and 0.96), indicating they are highly informative for classification.
+> * Sepal width has a weak or even negative correlation with other features and with the target (-0.43), suggesting it may be less useful for separating species.
+> * Sepal length is moderately correlated with both petal features and the target.
+> 🧠 Key Insight: Petal-based measurements are far more predictive of species classification than sepal-based ones.
