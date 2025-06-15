@@ -1,7 +1,0 @@
-prefix=/workspaces/ds-eda-01-iris-dataset/venv
-includedir=${prefix}/include
- 
-Name: DRI2Proto
-Description: DRI2 extension headers
-Version: 2.8
-Cflags: -I${includedir}

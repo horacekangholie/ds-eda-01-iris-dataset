@@ -1,7 +1,0 @@
-prefix=/workspaces/ds-eda-01-iris-dataset/venv
-includedir=${prefix}/include
- 
-Name: InputProto
-Description: Input extension headers
-Version: 2.3.99.2
-Cflags: -I${includedir}

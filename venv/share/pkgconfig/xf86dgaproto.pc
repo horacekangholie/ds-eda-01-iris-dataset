@@ -1,7 +1,0 @@
-prefix=/workspaces/ds-eda-01-iris-dataset/venv
-includedir=${prefix}/include
- 
-Name: XF86DGAProto
-Description: XF86DGA extension headers
-Version: 2.1
-Cflags: -I${includedir}

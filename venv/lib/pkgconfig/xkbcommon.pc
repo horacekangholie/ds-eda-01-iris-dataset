@@ -1,9 +1,0 @@
-prefix=/workspaces/ds-eda-01-iris-dataset/venv
-includedir=${prefix}/include
-libdir=${prefix}/lib
-
-Name: xkbcommon
-Description: XKB API common to servers and clients
-Version: 1.9.1
-Libs: -L${libdir} -lxkbcommon
-Cflags: -I${includedir}

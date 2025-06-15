@@ -1,7 +1,0 @@
-prefix=/workspaces/ds-eda-01-iris-dataset/venv
-includedir=${prefix}/include
-
-Name: VideoProto
-Description: Video extension headers
-Version: 2.3.3
-Cflags: -I${includedir}

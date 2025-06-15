@@ -1,2 +1,0 @@
-#!/bin/sh
-exec /workspaces/ds-eda-01-iris-dataset/venv/bin/python -m PyQt6.lupdate.pylupdate ${1+"$@"}
