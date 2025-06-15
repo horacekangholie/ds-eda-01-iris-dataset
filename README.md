@@ -110,4 +110,42 @@ sns.lmplot(x="petal length (cm)", y="petal width (cm)", hue='target', data=df_da
 > * There is virtually no overlap between the three groups, indicating that these two petal measurements alone can almost perfectly classify the species.
 
 > 🧠 Key Insight:
-> Petal measurements offer clear, near-perfect separation of the three Iris species—making them the most powerful features for building a simple, accurate classifier.
+> Petal measurements offer clear, near-perfect separation of the three Iris species, 
+> making them the most powerful features for building a simple, accurate classifier.
+
+### 🗒️ Box Plot
+A boxplot (or box-and-whisker plot) is a compact way to visualize the distribution of a continuous variable through its five-number summary:
+* Median (middle line in the box)
+* Interquartile Range (IQR) (the box: Q1 to Q3)
+* Whiskers (typically extending to 1.5 × IQR from the quartiles)
+* Outliers (points beyond the whiskers)
+* Mean (shown here by a marker when showmeans=True)
+Boxplots let you compare spread, central tendency, skewness, and outliers across multiple variables side-by-side.
+
+```python
+sns.boxplot(data=df_data, showmeans=True, orient="v", palette="tab10")
+```
+
+> 🔍 What This Plot Tells About the Iris Dataset
+> Sepal Length (cm)
+> * Median around 5.8 cm, IQR roughly 5.1–6.4 cm.
+> * Whiskers span from about 4.3 cm up to 7.9 cm.
+> * Relatively symmetrical, with few extreme values.
+> Sepal Width (cm)
+> * Narrow IQR (~2.8–3.3 cm), indicating low variability.
+> * A couple of outliers above ~4.0 cm.
+> * Slight left-skew (median closer to the top of the box).
+> Petal Length (cm)
+> * Wide spread (IQR ~1.6–5.1 cm) reflecting two distinct clusters (setosa vs. the other species).
+> * Whiskers extend from ~1.0 cm up to ~6.9 cm, highlighting more variability.
+> * Box shows that petal length varies far more than sepal width.
+> Petal Width (cm)
+> * Similar story to petal length: IQR ~0.3–1.8 cm, whiskers up to ~2.5 cm.
+> * Clear separation in spread between setosa (very low widths) and the others.
+> Target
+> * Plotting the numeric target (0–2) mainly shows that the median sits at 1 with minimal spread—less informative here. (Boxplots are best reserved for continuous variables.)
+
+> 🧠 Key Takeaways
+> Petal features exhibit greater variability and clear grouping—reinforcing their power for class separation.
+> Sepal width is fairly consistent with few outliers.
+> Boxplots quickly reveal which features have skew, outliers, or distinct groupings that merit deeper analysis.
