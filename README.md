@@ -97,6 +97,8 @@ __Pearson correlation coefficients__
 sns.lmplot(x="petal length (cm)", y="petal width (cm)", hue='target', data=df_data, fit_reg=False, legend=False)
 ```
 
+![scatterplot](/assets/scatterplot.png)
+
 > 🔍 What This Plot Tells About the Iris Dataset
 > Perfect Cluster Separation
 > * Setosa (blue) points form a tight cluster at the lower-left corner (petal length ≈1–1.9 cm, width ≈0.1–0.6 cm).
