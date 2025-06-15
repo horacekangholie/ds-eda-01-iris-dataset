@@ -1,9 +1,9 @@
-### 📚 EDA - Iris Dataset
+## 📚 EDA - Iris Dataset
 
-#### 🗒️ About the dataset
+### 🗒️ About the dataset
 The Iris dataset is a classic multivariate dataset introduced by Ronald Fisher, widely used in pattern recognition and machine learning. It contains 150 samples of iris flowers, divided equally among three species: setosa, versicolor, and virginica. Each sample includes four numerical features: `sepal length`, `sepal width`, `petal length`, and `petal width`, all measured in centimeters. These features are used to classify the species of the iris flower. The dataset is well-balanced, clean, and small, making it ideal for learning classification techniques and exploratory data analysis.
 
-#### 🗒️ Histogram
+### 🗒️ Histogram
 Histograms are used in Exploratory Data Analysis (EDA) to visualize the distribution of a single numerical feature. They help you understand how values in a dataset are spread out, whether they are symmetrically distributed, skewed, or show signs of multimodal behavior (multiple peaks). Adding a KDE (Kernel Density Estimate) curve gives a smoothed version of the distribution, making patterns even clearer.
 
 ```python
@@ -18,7 +18,7 @@ sns.histplot(data=df_data, x=feature, ax=axes[0], kde=True)
 > * _Petal Length_: Shows a bimodal distribution, suggesting the presence of at least two distinct groups (likely related to different species). This is a strong signal that petal length is a useful feature for classification.
 > * _Petal Width_: Also bimodal, with many samples having small values (near 0.2 cm) and another group between 1.0 to 2.0 cm. Like petal length, it likely differentiates between species. 
 
-#### 🗒️ Countplot
+### 🗒️ Countplot
 The countplot is used to visualize the frequency (i.e. count) of each category in a categorical feature—here, the target variable which represents the three species of iris flowers. By using hue='target', you reinforce the separation of classes visually, and the legend maps numeric class labels (0, 1, 2) to their actual names (setosa, versicolor, virginica)
 
 ```python
@@ -32,7 +32,7 @@ sns.countplot(data=df_data, x='target', hue='target', palette='tab10')
 > * The dataset is perfectly balanced across the three species—meaning no class is over- or under-represented.
 > * This is important for machine learning because it reduces the risk of bias during training—models won't be skewed toward any specific class simply due to frequency.
 
-#### 🗒️ Pairplot
+### 🗒️ Pairplot
 The pairplot is used in EDA to: 
 * Visualize pairwise relationships between all numerical features in the dataset.
 * Quickly spot patterns, correlations, or separation between classes.
@@ -58,7 +58,7 @@ sns.pairplot(df_data, hue='target', diag_kind='kde', palette='tab10')
 > * Setosa is easiest to classify.
 > * Feature combinations like petal length vs petal width would be highly useful in classification models.
 
-#### 🗒️ Heatmap
+### 🗒️ Heatmap
 A correlation heatmap is used to visualize the linear relationships between numerical variables. It helps:
 * Identify strong positive or negative correlations.
 * Detect redundant features (highly correlated with others) which may affect model performance.
@@ -79,4 +79,5 @@ A correlation heatmap is used to visualize the linear relationships between nume
 > * Both petal features are highly correlated with the target (0.95 and 0.96), indicating they are highly informative for classification.
 > * Sepal width has a weak or even negative correlation with other features and with the target (-0.43), suggesting it may be less useful for separating species.
 > * Sepal length is moderately correlated with both petal features and the target.
+
 > 🧠 Key Insight: Petal-based measurements are far more predictive of species classification than sepal-based ones.
