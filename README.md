@@ -6,7 +6,7 @@ The Iris dataset is a classic multivariate dataset introduced by Ronald Fisher, 
 ### 🗒️ Histogram
 A histogram is a commonly used chart to show the distribution of data — it is a one-dimensional bar chart representing the frequency of data intervals. Seaborn’s `histplot()` function is used to draw histograms of the four Iris features (sepal and petal width and length).
 
-This method allows us to visually check how each variable is distributed. From the chart, we can observe:
+This plot allows us to visually check how each variable is distributed. From the chart, we can observe:
 * The petal length and petal width distributions show clear separations between classes.
 * The sepal measurements show more overlapping.
 * This helps us preliminarily identify which features may better distinguish between different species.
@@ -28,8 +28,8 @@ sns.histplot(data=df_data, x=feature, ax=axes[0], kde=True)
 > * _Petal Length_: Shows a bimodal distribution, suggesting the presence of at least two distinct groups (likely related to different species). This is a strong signal that petal length is a useful feature for classification.
 > * _Petal Width_: Also bimodal, with many samples having small values (near 0.2 cm) and another group between 1.0 to 2.0 cm. Like petal length, it likely differentiates between species. 
 
-### 🗒️ Countplot
-The countplot is used to visualize the frequency (i.e. count) of each category in a categorical feature—here, the target variable which represents the three species of iris flowers. By using hue='target', you reinforce the separation of classes visually, and the legend maps numeric class labels (0, 1, 2) to their actual names (setosa, versicolor, virginica)
+### 🗒️ Bar Chart
+The Bar Chart is used to visualize the frequency (i.e. count) of each category in a categorical feature—here, the target variable which represents the three species of iris flowers. By using hue='target', you reinforce the separation of classes visually, and the legend maps numeric class labels (0, 1, 2) to their actual names (setosa, versicolor, virginica)
 
 ```python
 sns.countplot(data=df_data, x='target', hue='target', palette='tab10')
@@ -72,11 +72,13 @@ sns.pairplot(df_data, hue='target', diag_kind='kde', palette='tab10')
 > * Setosa is easiest to classify.
 > * Feature combinations like petal length vs petal width would be highly useful in classification models.
 
-### 🗒️ Heatmap
-A correlation heatmap is used to visualize the linear relationships between numerical variables. It helps:
-* Identify strong positive or negative correlations.
-* Detect redundant features (highly correlated with others) which may affect model performance.
-* Guide feature selection or dimensionality reduction.
+### 🗒️ Correlation Heatmap
+A correlation heatmap is used to visualize explore relationships between different numerical features. By visualizing correlations using a heatmap, we can quickly identify which variables are more related.
+This is useful for:
+* Feature selection – removing redundant or weak features.
+* Understanding which features are strongly related to the target for potential modeling.
+* Reducing multicollinearity – preventing highly correlated inputs in models like linear regression.
+* Early warning of feature interdependence, helping design more robust models.
 
 ```python
 sns.heatmap(corr, square=True, annot=True, mask=mask, cmap="RdBu_r")
@@ -103,9 +105,7 @@ __Pearson correlation coefficients__
 > 🧠 Key Insight: Petal-based measurements are far more predictive of species classification than sepal-based ones.
 
 ### 🗒️ Scatter Plot
-* Scatter Plot for Feature Relationship: It shows how two continuous variables—in this case, petal length vs. petal width—relate to each other.
-* Class Separation via Color: Using hue='target' colors each point by species, making it easy to see how well the three classes separate in this 2-D feature space.
-* No Regression Assumption: With fit_reg=False, we focus purely on the point clouds without fitting a linear model, since we’re more interested in clustering than in trends.
+Scatter plots visualize the relationship between two numeric features on a 2D plane. Each dot represents an observation and helps in understanding the pattern between two variables. When we have labeled data (like Iris species), we can assign different colors to each class to observe potential separations between categories. In this case, we use Seaborn's `lmplot()` to plot sepal length vs sepal width, and color each point according to its `target` class.
 
 ```python
 sns.lmplot(x="petal length (cm)", y="petal width (cm)", hue='target', data=df_data, fit_reg=False, legend=False)
@@ -129,17 +129,28 @@ sns.lmplot(x="petal length (cm)", y="petal width (cm)", hue='target', data=df_da
 > making them the most powerful features for building a simple, accurate classifier.
 
 ### 🗒️ Box Plot
-A boxplot (or box-and-whisker plot) is a compact way to visualize the distribution of a continuous variable through its five-number summary:
-* Median (middle line in the box)
-* Interquartile Range (IQR) (the box: Q1 to Q3)
-* Whiskers (typically extending to 1.5 × IQR from the quartiles)
-* Outliers (points beyond the whiskers)
-* Mean (shown here by a marker when showmeans=True)
-Boxplots let you compare spread, central tendency, skewness, and outliers across multiple variables side-by-side.
+A box plot (also called a box-and-whisker plot) is a common visualization for statistical distribution. It shows a dataset’s median, quartiles, and outliers, helping users quickly understand the data’s central tendency and spread.
+Key Concepts in a Box Plot:
+* `Median`: The central value that separates the higher half from the lower half of the data.
+* `Quartiles` (Q1, Q3):
+  * Q1: the value at the 25th percentile.
+  * Q3: the value at the 75th percentile.
+* `Box`: Represents the interquartile range (IQR), which covers the middle 50% of the data (from Q1 to Q3).
+* `Whiskers`: The lines extending from the box to the smallest and largest values within 1.5×IQR from the box.
+* `Outliers`: Data points that fall outside the whiskers (typically beyond 1.5×IQR from Q1 or Q3).
+
+In seaborn’s boxplot(), the whiskers by default extend to `1.5 × IQR`. This means values outside this range are considered outliers and shown as individual points. 
+This visualization is useful for:
+* Spotting skewed distributions,
+* Comparing multiple features side by side,
+* Quickly identifying potential outliers.
 
 ```python
 sns.boxplot(data=df_data, showmeans=True, orient="v", palette="tab10")
 ```
+* `showmeans=True`: Display the mean as a symbol on the plot.
+* `orient="v"`: Vertical orientation of the box plot.
+* `palette="tab10"`: Use seaborn’s built-in color palette to differentiate each variable.
 
 ![boxplot](/assets/boxplot.png)
 
