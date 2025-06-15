@@ -64,6 +64,8 @@ A correlation heatmap is used to visualize the linear relationships between nume
 * Detect redundant features (highly correlated with others) which may affect model performance.
 * Guide feature selection or dimensionality reduction.
 
+__Pearson correlation coefficients__
+
 | Correlation Coefficient (r) | Strength |
 | --- | --- | --- |
 | **0.90 to 1.00** | Very strong |
