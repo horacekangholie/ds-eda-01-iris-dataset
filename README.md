@@ -100,14 +100,15 @@ sns.lmplot(x="petal length (cm)", y="petal width (cm)", hue='target', data=df_da
 ![scatterplot](/assets/scatterplot.png)
 
 > 🔍 What This Plot Tells About the Iris Dataset
-> Perfect Cluster Separation
-> * Setosa (blue) points form a tight cluster at the lower-left corner (petal length ≈1–1.9 cm, width ≈0.1–0.6 cm).
-> * Versicolor (orange) occupy the middle region (length ≈3–5 cm, width ≈1–1.8 cm).
-> * Virginica (green) are in the upper-right (length ≈4.5–7 cm, width ≈1.4–2.5 cm).
+
+> * Perfect Cluster Separation
+>   * Setosa (blue) points form a tight cluster at the lower-left corner (petal length ≈1–1.9 cm, width ≈0.1–0.6 cm).
+>   * Versicolor (orange) occupy the middle region (length ≈3–5 cm, width ≈1–1.8 cm).
+>   * Virginica (green) are in the upper-right (length ≈4.5–7 cm, width ≈1.4–2.5 cm).
 > Linear-Like Relationship
-> * Within each species, petal length and width increase together, showing a roughly linear trend—longer petals are also wider.
+>   * Within each species, petal length and width increase together, showing a roughly linear trend—longer petals are also wider.
 > High Discriminative Power
-> * There is virtually no overlap between the three groups, indicating that these two petal measurements alone can almost perfectly classify the species.
+>   * There is virtually no overlap between the three groups, indicating that these two petal measurements alone can almost perfectly classify the species.
 
 > 🧠 Key Insight:
 > Petal measurements offer clear, near-perfect separation of the three Iris species, 
@@ -127,25 +128,25 @@ sns.boxplot(data=df_data, showmeans=True, orient="v", palette="tab10")
 ```
 
 > 🔍 What This Plot Tells About the Iris Dataset
-> Sepal Length (cm)
+> * Sepal Length (cm)
 >   * Median around 5.8 cm, IQR roughly 5.1–6.4 cm.
 >   * Whiskers span from about 4.3 cm up to 7.9 cm.
 >   * Relatively symmetrical, with few extreme values.
-> Sepal Width (cm)
+> * Sepal Width (cm)
 >   * Narrow IQR (~2.8–3.3 cm), indicating low variability.
 >   * A couple of outliers above ~4.0 cm.
 >   * Slight left-skew (median closer to the top of the box).
-> Petal Length (cm)
+> * Petal Length (cm)
 >   * Wide spread (IQR ~1.6–5.1 cm) reflecting two distinct clusters (setosa vs. the other species).
 >   * Whiskers extend from ~1.0 cm up to ~6.9 cm, highlighting more variability.
 >   * Box shows that petal length varies far more than sepal width.
-> Petal Width (cm)
+> * Petal Width (cm)
 >   * Similar story to petal length: IQR ~0.3–1.8 cm, whiskers up to ~2.5 cm.
 >   * Clear separation in spread between setosa (very low widths) and the others.
-> Target
+> * Target
 >   * Plotting the numeric target (0–2) mainly shows that the median sits at 1 with minimal spread—less informative here. (Boxplots are best reserved for continuous variables.)
 
 > 🧠 Key Takeaways
-> Petal features exhibit greater variability and clear grouping—reinforcing their power for class separation.
-> Sepal width is fairly consistent with few outliers.
-> Boxplots quickly reveal which features have skew, outliers, or distinct groupings that merit deeper analysis.
+> * Petal features exhibit greater variability and clear grouping—reinforcing their power for class separation.
+> * Sepal width is fairly consistent with few outliers.
+> * Boxplots quickly reveal which features have skew, outliers, or distinct groupings that merit deeper analysis.
