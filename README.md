@@ -127,6 +127,8 @@ Boxplots let you compare spread, central tendency, skewness, and outliers across
 sns.boxplot(data=df_data, showmeans=True, orient="v", palette="tab10")
 ```
 
+![boxplot](/assets/boxplot.png)
+
 > 🔍 What This Plot Tells About the Iris Dataset
 > * Sepal Length (cm)
 >   * Median around 5.8 cm, IQR roughly 5.1–6.4 cm.
