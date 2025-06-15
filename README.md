@@ -66,13 +66,13 @@ A correlation heatmap is used to visualize the linear relationships between nume
 
 __Pearson correlation coefficients__
 
-| Correlation Coefficient (r) | Strength |
-| --- | --- | --- |
-| **0.90 to 1.00** | Very strong |
-| **0.70 to 0.89** | Strong |
-| **0.40 to 0.69** | Moderate |
-| **0.10 to 0.39** | Weak |
-| **0** | None / No correlation |
+| Correlation Coefficient (r) | Strength       |
+| --------------------------- | -------------- | 
+| **0.90 to 1.00**            | Very strong    |
+| **0.70 to 0.89**            | Strong         |
+| **0.40 to 0.69**            | Moderate       |
+| **0.10 to 0.39**            | Weak           |
+| **0**                       | No correlation |
 
 ![heatmap](/assets/heatmap.png)
 
