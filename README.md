@@ -64,6 +64,10 @@ A correlation heatmap is used to visualize the linear relationships between nume
 * Detect redundant features (highly correlated with others) which may affect model performance.
 * Guide feature selection or dimensionality reduction.
 
+```python
+sns.heatmap(corr, square=True, annot=True, mask=mask, cmap="RdBu_r")
+```
+
 __Pearson correlation coefficients__
 
 | Correlation Coefficient (r) | Strength       |
@@ -83,3 +87,25 @@ __Pearson correlation coefficients__
 > * Sepal length is moderately correlated with both petal features and the target.
 
 > 🧠 Key Insight: Petal-based measurements are far more predictive of species classification than sepal-based ones.
+
+### 🗒️ Scatter Plot
+* Scatter Plot for Feature Relationship: It shows how two continuous variables—in this case, petal length vs. petal width—relate to each other.
+* Class Separation via Color: Using hue='target' colors each point by species, making it easy to see how well the three classes separate in this 2-D feature space.
+* No Regression Assumption: With fit_reg=False, we focus purely on the point clouds without fitting a linear model, since we’re more interested in clustering than in trends.
+
+```python
+sns.lmplot(x="petal length (cm)", y="petal width (cm)", hue='target', data=df_data, fit_reg=False, legend=False)
+```
+
+> 🔍 What This Plot Tells About the Iris Dataset
+> Perfect Cluster Separation
+> * Setosa (blue) points form a tight cluster at the lower-left corner (petal length ≈1–1.9 cm, width ≈0.1–0.6 cm).
+> * Versicolor (orange) occupy the middle region (length ≈3–5 cm, width ≈1–1.8 cm).
+> * Virginica (green) are in the upper-right (length ≈4.5–7 cm, width ≈1.4–2.5 cm).
+> Linear-Like Relationship
+> * Within each species, petal length and width increase together, showing a roughly linear trend—longer petals are also wider.
+> High Discriminative Power
+> * There is virtually no overlap between the three groups, indicating that these two petal measurements alone can almost perfectly classify the species.
+
+> 🧠 Key Insight:
+> Petal measurements offer clear, near-perfect separation of the three Iris species—making them the most powerful features for building a simple, accurate classifier.
