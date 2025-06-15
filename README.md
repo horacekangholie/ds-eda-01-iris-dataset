@@ -4,11 +4,21 @@
 The Iris dataset is a classic multivariate dataset introduced by Ronald Fisher, widely used in pattern recognition and machine learning. It contains 150 samples of iris flowers, divided equally among three species: setosa, versicolor, and virginica. Each sample includes four numerical features: `sepal length`, `sepal width`, `petal length`, and `petal width`, all measured in centimeters. These features are used to classify the species of the iris flower. The dataset is well-balanced, clean, and small, making it ideal for learning classification techniques and exploratory data analysis.
 
 ### 🗒️ Histogram
-Histograms are used in Exploratory Data Analysis (EDA) to visualize the distribution of a single numerical feature. They help you understand how values in a dataset are spread out, whether they are symmetrically distributed, skewed, or show signs of multimodal behavior (multiple peaks). Adding a KDE (Kernel Density Estimate) curve gives a smoothed version of the distribution, making patterns even clearer.
+A histogram is a commonly used chart to show the distribution of data — it is a one-dimensional bar chart representing the frequency of data intervals. Seaborn’s `histplot()` function is used to draw histograms of the four Iris features (sepal and petal width and length).
+
+This method allows us to visually check how each variable is distributed. From the chart, we can observe:
+* The petal length and petal width distributions show clear separations between classes.
+* The sepal measurements show more overlapping.
+* This helps us preliminarily identify which features may better distinguish between different species.
 
 ```python
 sns.histplot(data=df_data, x=feature, ax=axes[0], kde=True)
 ```
+
+* `x="sepal length (cm)"`: specifies which column to plot on the x-axis.
+* `data=df_data`: specifies the dataset being used.
+* `ax=axes[...]`: specifies which subplot the chart will be drawn on (left to right).
+* `kde=True`: enables the Kernel Density Estimation curve to be drawn over the histogram, which helps visualize the smooth distribution of the data.
 
 ![Histogram](/assets/histogram.png)
 
@@ -32,16 +42,20 @@ sns.countplot(data=df_data, x='target', hue='target', palette='tab10')
 > * The dataset is perfectly balanced across the three species—meaning no class is over- or under-represented.
 > * This is important for machine learning because it reduces the risk of bias during training—models won't be skewed toward any specific class simply due to frequency.
 
-### 🗒️ Pairplot
-The pairplot is used in EDA to: 
-* Visualize pairwise relationships between all numerical features in the dataset.
-* Quickly spot patterns, correlations, or separation between classes.
-* The hue='target' parameter colors the data points by species, making it easy to see how well different species are separated across different feature combinations.
-* The diag_kind='kde' shows smoothed density plots along the diagonal to understand each feature’s distribution within each class.
+### 🗒️ Kernel Density Estimation Plot
+Kernel Density Estimation (KDE) plots are used to visualize data distributions. Diagonal plots represent KDE plots for each feature, while off-diagonal plots represent scatter plots between features. This type of plot is very effective for visualizing how features are distributed for each species and identifying which features may help distinguish between categories.
+For example:
+* Petal length and petal width show clear clustering among different species, suggesting good separation.
+* Sepal length and sepal width show more overlap.
+This plot provides an intuitive and effective way to observe the overall structure of the data.
 
 ```python
 sns.pairplot(df_data, hue='target', diag_kind='kde', palette='tab10')
 ```
+* `df_data`: the dataset to be plotted.
+* `hue='target'`: sets the target class as the hue, so different species will be shown in different colors.
+* `diag_kind='kde'`: sets the diagonal plots (individual variable distributions) to use kernel density estimation.
+* `palette='tab10'`: uses the built-in seaborn color palette "tab10" to distinguish different species.
 
 ![pairplot](/assets/pairplot.png)
 

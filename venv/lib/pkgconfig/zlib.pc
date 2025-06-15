@@ -1,0 +1,13 @@
+prefix=/workspaces/ds-eda-01-iris-dataset/venv
+exec_prefix=/workspaces/ds-eda-01-iris-dataset/venv
+libdir=/workspaces/ds-eda-01-iris-dataset/venv/lib
+sharedlibdir=/workspaces/ds-eda-01-iris-dataset/venv/lib
+includedir=/workspaces/ds-eda-01-iris-dataset/venv/include
+
+Name: zlib
+Description: zlib compression library
+Version: 1.2.13
+
+Requires:
+Libs: -L${libdir} -L${sharedlibdir} -lz
+Cflags: -I${includedir}

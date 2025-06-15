@@ -1,0 +1,14 @@
+prefix=/workspaces/ds-eda-01-iris-dataset/venv
+exec_prefix=${prefix}
+libdir=${exec_prefix}/lib
+includedir=${prefix}/include
+
+Name: libecpg
+Description: PostgreSQL libecpg library
+URL: https://www.postgresql.org/
+Version: 17.4
+Requires: 
+Requires.private: libpq, libpgtypes
+Cflags: -I${includedir}
+Libs: -L${libdir} -lecpg
+Libs.private: -L/workspaces/ds-eda-01-iris-dataset/venv/lib -lpgcommon -lpgport -lpq -lm

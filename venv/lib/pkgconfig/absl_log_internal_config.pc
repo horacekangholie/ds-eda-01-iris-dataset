@@ -1,0 +1,12 @@
+prefix=/workspaces/ds-eda-01-iris-dataset/venv
+exec_prefix=${prefix}
+libdir=/workspaces/ds-eda-01-iris-dataset/venv/lib
+includedir=/workspaces/ds-eda-01-iris-dataset/venv/include
+
+Name: absl_log_internal_config
+Description: Abseil log_internal_config library
+URL: https://abseil.io/
+Version: 20250127
+Requires: absl_config = 20250127, absl_core_headers = 20250127
+Libs: -L${libdir}  
+Cflags: -I${includedir} -DNOMINMAX

@@ -1,0 +1,11 @@
+prefix=/workspaces/ds-eda-01-iris-dataset/venv
+exec_prefix=/workspaces/ds-eda-01-iris-dataset/venv
+libdir=/workspaces/ds-eda-01-iris-dataset/venv/lib
+includedir=/workspaces/ds-eda-01-iris-dataset/venv/include
+
+Name: uuid
+Description: Universally unique id library
+Version: 2.32.1
+Requires:
+Cflags: -I${includedir}/uuid
+Libs: -L${libdir} -luuid

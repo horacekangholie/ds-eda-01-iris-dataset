@@ -1,0 +1,14 @@
+prefix=/workspaces/ds-eda-01-iris-dataset/venv
+exec_prefix=/workspaces/ds-eda-01-iris-dataset/venv
+libdir=/workspaces/ds-eda-01-iris-dataset/venv/lib
+includedir=/workspaces/ds-eda-01-iris-dataset/venv/include
+
+Name: FreeType 2
+URL: https://freetype.org
+Description: A free, high-quality, and portable font engine.
+Version: 26.2.20
+Requires: 
+Requires.private: zlib, libpng
+Libs: -L/workspaces/ds-eda-01-iris-dataset/venv/lib -lfreetype
+Libs.private: 
+Cflags: -I${includedir}/freetype2
