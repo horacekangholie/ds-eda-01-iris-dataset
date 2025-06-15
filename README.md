@@ -105,9 +105,9 @@ sns.lmplot(x="petal length (cm)", y="petal width (cm)", hue='target', data=df_da
 >   * Setosa (blue) points form a tight cluster at the lower-left corner (petal length ≈1–1.9 cm, width ≈0.1–0.6 cm).
 >   * Versicolor (orange) occupy the middle region (length ≈3–5 cm, width ≈1–1.8 cm).
 >   * Virginica (green) are in the upper-right (length ≈4.5–7 cm, width ≈1.4–2.5 cm).
-> Linear-Like Relationship
+> * Linear-Like Relationship
 >   * Within each species, petal length and width increase together, showing a roughly linear trend—longer petals are also wider.
-> High Discriminative Power
+> * High Discriminative Power
 >   * There is virtually no overlap between the three groups, indicating that these two petal measurements alone can almost perfectly classify the species.
 
 > 🧠 Key Insight:
