@@ -177,3 +177,15 @@ sns.boxplot(data=df_data, showmeans=True, orient="v", palette="tab10")
 > * Petal features exhibit greater variability and clear grouping—reinforcing their power for class separation.
 > * Sepal width is fairly consistent with few outliers.
 > * Boxplots quickly reveal which features have skew, outliers, or distinct groupings that merit deeper analysis.
+
+
+### 🗒️ Summary & Conclusion
+In this exploratory analysis of the classic Iris dataset (150 samples, three equally represented species), first confirmed a perfectly balanced target distribution (50 samples per species) and no missing values. Univariate histograms and KDEs revealed that sepal length and width are roughly unimodal and show moderate variability, whereas petal length and width exhibit clear bimodal patterns—an early indication of strong class separation.
+
+Pairwise scatterplots and correlation heatmaps highlighted that petal length and petal width are very strongly correlated (r≈0.96) and both correlate highly with species (r≈0.95–0.96). In contrast, sepal width even shows a moderate negative correlation with the target (r≈–0.43) and weaker correlations with other features. Boxplots reinforced these findings: petal measurements have much greater spread and distinct groupings, while sepal width remains relatively consistent across species.
+
+Conclusion:
+* Petal dimensions are the most informative features for distinguishing species, offering near-perfect linear separability—ideal predictors for a simple classifier.
+* Sepal measurements, especially sepal width, add little discriminative power on their own and could be deprioritized or combined with petal features in feature engineering.
+* With these insights, a straightforward model (e.g., logistic regression or decision tree) using petal length and width can achieve high accuracy; further work can explore robustness, cross-validation, and feature scaling.
+
